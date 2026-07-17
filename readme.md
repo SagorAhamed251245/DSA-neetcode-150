@@ -24,9 +24,10 @@ A TypeScript-based application for practicing Data Structures and Algorithms pro
 | 12 | [✖️ Solution 7 — Product of Array Except Self](#️-solution-7--product-of-array-except-self) | ✅ |
 | 13 | [🎯 Solution 8 — Valid Sudoku](#-solution-8--valid-sudoku) | ✅ |
 | 14 | [🔗 Solution 9 — Longest Consecutive Sequence](#-solution-9--longest-consecutive-sequence) | ✅ |
-| 15 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
-| 16 | [💡 Tips](#-tips) | ✅ |
-| 17 | [📝 Add New Solution](#-add-new-solution) | ✅ |
+| 15 | [👉 Solution 10 — Valid Palindrome](#-solution-10--valid-palindrome) | ✅ |
+| 16 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
+| 17 | [💡 Tips](#-tips) | ✅ |
+| 18 | [📝 Add New Solution](#-add-new-solution) | ✅ |
 
 ---
 
@@ -74,7 +75,8 @@ This app is part of a **100 Days Challenge** for mastering DSA. Each file in `sr
 │   ├── 📄 encodeDecode2.ts         # 🔐 Alternative solution
 │   ├── 📄 productExceptSelf.ts     # ✖️ Product of Array Except Self
 │   ├── 📄 isValidSudoku.ts         # 🎯 Valid Sudoku
-│   └── 📄 longestConsecutive.ts    # 🔗 Longest Consecutive Sequence
+│   ├── 📄 longestConsecutive.ts    # 🔗 Longest Consecutive Sequence
+│   └── 📄 isPalindrome.ts          # 👉 Valid Palindrome
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 └── 📄 APP.md                       # 📖 This file
@@ -2529,6 +2531,89 @@ npx tsx src/isValidSudoku.ts
 
 ---
 
+---
+
+# 👉 Solution 10 — Valid Palindrome
+
+> **📁 File:** `src/isPalindrome.ts`
+
+## 📋 Problem
+
+Given a string `s`, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+
+**🎯 Example:**
+```
+Input:  "A man, a plan, a canal: Panama"
+Output: true
+
+Input:  "race a car"
+Output: false
+```
+
+## 💻 The Code
+
+```typescript
+export function isPalindrome(s: string): boolean {
+  let i = 0;
+  let j = s.length - 1;
+  function nonAlpha(str: string) {
+    return str.replace(/[^a-zA-Z0-9]/g, "");
+  }
+
+  while (i < j) {
+    const left = s[i]!;
+    const right = s[j]!;
+    if (nonAlpha(left) === "") {
+      i++;
+      continue;
+    }
+
+    if (nonAlpha(right) === "") {
+      j--;
+      continue;
+    }
+
+    if (nonAlpha(left).toLowerCase() !== nonAlpha(right).toLowerCase()) {
+      return false;
+    }
+
+    i++;
+    j--;
+  }
+
+  return true;
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+1. **Two pointers** start at opposite ends of the string — `i` at the beginning, `j` at the end.
+2. At each step, skip non-alphanumeric characters by checking if `nonAlpha()` returns an empty string.
+3. Compare the lowercase versions of both characters. If they don't match, return `false`.
+4. Move pointers inward and repeat until they meet.
+5. If all pairs matched, return `true`.
+
+**Walkthrough with `"A man, a plan, a canal: Panama"`:**
+- `i=0` ('A') vs `j=30` ('a') → both alpha, lowercase match → move in
+- `i=1` (' ') → skip. `i=2` ('m') vs `j=29` ('m') → match
+- Continue skipping spaces/punctuation, comparing letters...
+- All pairs match → `true`
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(n)` | Each character visited at most once |
+| 💾 Space | `O(1)` | Only two pointers, no extra data structures |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/isPalindrome.ts
+```
+
+---
+
 ## ➕ Adding New Problems
 
 ### Step 1: 📄 Create the file
@@ -2582,6 +2667,7 @@ npx tsx src/newProblem.ts
 | ✖️ Product of Array Except Self | Medium | Prefix/Suffix Products | ✅ Solved |
 | 🎯 Valid Sudoku | Medium | Hash Set | ✅ Solved |
 | 🔗 Longest Consecutive | Medium | Hash Set | ✅ Solved |
+| 👉 Valid Palindrome | Easy | Two Pointers | ✅ Solved |
 
 ---
 
