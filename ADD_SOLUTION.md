@@ -20,7 +20,7 @@ Example: [input] → [output]
 ### Step 1: Read the solution file only
 
 ```
-Read src/[fileName].ts
+Read src/src/productExceptSelf.ts
 ```
 
 This is the ONLY file to read fully.

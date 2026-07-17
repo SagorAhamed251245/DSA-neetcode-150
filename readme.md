@@ -21,10 +21,12 @@ A TypeScript-based application for practicing Data Structures and Algorithms pro
 | 9 | [📊 Solution 4 — Top K Frequent Elements](#-solution-4--top-k-frequent-elements) | ✅ |
 | 10 | [🗂️ Solution 5 — Group Anagrams](#️-solution-5--group-anagrams) | ✅ |
 | 11 | [🔐 Solution 6 — Encode & Decode Strings](#-solution-6--encode--decode-strings) | ✅ |
-| 12 | [✖️ Solution 7 — Product of Array Except Self](#-solution-7--product-of-array-except-self) | ✅ |
-| 13 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
-| 14 | [💡 Tips](#-tips) | ✅ |
-| 15 | [📝 Add New Solution](#-add-new-solution) | ✅ |
+| 12 | [✖️ Solution 7 — Product of Array Except Self](#️-solution-7--product-of-array-except-self) | ✅ |
+| 13 | [🎯 Solution 8 — Valid Sudoku](#-solution-8--valid-sudoku) | ✅ |
+| 14 | [🔗 Solution 9 — Longest Consecutive Sequence](#-solution-9--longest-consecutive-sequence) | ✅ |
+| 15 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
+| 16 | [💡 Tips](#-tips) | ✅ |
+| 17 | [📝 Add New Solution](#-add-new-solution) | ✅ |
 
 ---
 
@@ -70,7 +72,9 @@ This app is part of a **100 Days Challenge** for mastering DSA. Each file in `sr
 │   ├── 📄 groupAnagrams.ts         # 🗂️ Group Anagrams
 │   ├── 📄 encodeDecode.ts          # 🔐 Encode & Decode Strings
 │   ├── 📄 encodeDecode2.ts         # 🔐 Alternative solution
-│   └── 📄 productExceptSelf.ts     # ✖️ Product of Array Except Self
+│   ├── 📄 productExceptSelf.ts     # ✖️ Product of Array Except Self
+│   ├── 📄 isValidSudoku.ts         # 🎯 Valid Sudoku
+│   └── 📄 longestConsecutive.ts    # 🔗 Longest Consecutive Sequence
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 └── 📄 APP.md                       # 📖 This file
@@ -2344,9 +2348,184 @@ npx tsx src/productExceptSelf.ts
 
 ---
 
+# 🔗 Solution 9 — Longest Consecutive Sequence
+
+> **📁 File:** `src/longestConsecutive.ts`
+
+## 📋 Problem
+
+Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence. You must write an algorithm that runs in O(n) time.
+
+**🎯 Example:**
+```
+Input: nums = [100, 4, 200, 1, 3, 2]
+Output: 4
+Explanation: The longest consecutive sequence is [1, 2, 3, 4]. Therefore its length is 4.
+```
+
+## 💻 The Code
+
+```typescript
+export function longestConsecutive(nums: number[]): number {
+  if (nums.length === 0 || nums === null) {
+    return 0;
+  }
+  const set = new Set(nums);
+  let longest = 0;
+  for (const num of set) {
+    if (!set.has(num - 1)) {
+      let currentNum = num;
+      let currentStreak = 1;
+      while (set.has(currentNum + 1)) {
+        currentNum++;
+        currentStreak++;
+      }
+      longest = Math.max(longest, currentStreak);
+    }
+  }
+  return longest;
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+1. **Handle edge cases**: Return 0 if array is empty or null
+2. **Create hash set**: Convert array to Set for O(1) lookups
+3. **Iterate through set**: For each number, check if it's the start of a sequence
+4. **Check sequence start**: A number is a sequence start if `num - 1` doesn't exist in the set
+5. **Count consecutive sequence**: From each start, count how many consecutive numbers exist
+6. **Track longest streak**: Update longest with the maximum streak found
+7. **Return result**: Return the length of the longest consecutive sequence
+
+### 🧪 Test Cases
+
+| Input | Output | Explanation |
+|-------|--------|-------------|
+| `[100, 4, 200, 1, 3, 2]` | `4` | Sequence: 1→2→3→4 |
+| `[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]` | `9` | Sequence: 0→1→2→3→4→5→6→7→8 |
+| `[9, 1, 4, 7, 3, -1, 0, 5, 8, -1, 6]` | `7` | Sequence: -1→0→1→3→4→5→6→7→8 |
+| `[1, 2, 0, 1]` | `3` | Sequence: 0→1→2 |
+| `[]` | `0` | Empty array |
+| `[1]` | `1` | Single element |
+| `[1, 2, 3, 100, 101, 102, 103]` | `4` | Sequence: 100→101→102→103 |
+
+### ▶️ Visual Walkthrough
+
+```
+Input: [100, 4, 200, 1, 3, 2]
+
+Step 1: Create Set = {100, 4, 200, 1, 3, 2}
+
+Step 2: Check each number:
+  - 100: Is 99 in set? NO → Start counting: 100, 101? NO → streak = 1
+  - 4: Is 3 in set? YES → Skip (not a sequence start)
+  - 200: Is 199 in set? NO → Start counting: 200, 201? NO → streak = 1
+  - 1: Is 0 in set? NO → Start counting: 2? YES → 3? YES → 4? YES → 5? NO → streak = 4
+  - 3: Is 2 in set? YES → Skip
+  - 2: Is 1 in set? YES → Skip
+
+Step 3: longest = max(1, 1, 4) = 4
+
+Output: 4
+```
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(n)` | Each number is visited at most twice (once in loop, once in while) |
+| 💾 Space | `O(n)` | Hash set stores all n elements |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/longestConsecutive.ts
+```
+
+---
+
 ## 📝 Add New Solution
 
 See **[ADD_SOLUTION.md](ADD_SOLUTION.md)** — paste the template to the AI with your code and it will add the solution in the correct format.
+
+---
+
+# 🎯 Solution 8 — Valid Sudoku
+
+> **📁 File:** `src/isValidSudoku.ts`
+
+## 📋 Problem
+
+Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the rules: each row, column, and 3x3 sub-box must contain digits 1-9 without repetition.
+
+**🎯 Example:**
+```
+Input: board = 
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+
+Output: true
+```
+
+## 💻 The Code
+
+```typescript
+export function isValidSudoku(board: string[][]): boolean {
+  const rows = Array.from({ length: 9 }, () => new Set());
+  const cols = Array.from({ length: 9 }, () => new Set());
+  const boxes = Array.from({ length: 9 }, () => new Set());
+
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const value = board[r]?.[c];
+
+      if (value === ".") continue;
+
+      const boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+      if (
+        rows[r]?.has(value) ||
+        cols[c]?.has(value) ||
+        boxes[boxIndex]?.has(value)
+      )
+        return false;
+      rows[r]?.add(value);
+      cols[c]?.add(value);
+      boxes[boxIndex]?.add(value);
+    }
+  }
+  return true;
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+1. **Initialize tracking structures**: Create 9 sets for rows, 9 sets for columns, and 9 sets for 3x3 boxes
+2. **Iterate through each cell**: For every cell in the 9x9 board
+3. **Skip empty cells**: If the cell contains `.`, move to the next
+4. **Calculate box index**: Map (row, col) to box index using `Math.floor(r / 3) * 3 + Math.floor(c / 3)`
+5. **Check for duplicates**: If the value exists in the row, column, or box set, return false
+6. **Track the value**: Add the value to the corresponding row, column, and box sets
+7. **Return true**: If no duplicates found after checking all cells
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(1)` | Always iterates through 81 cells (9×9 board) |
+| 💾 Space | `O(1)` | Uses fixed-size arrays (27 sets total) |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/isValidSudoku.ts
+```
 
 ---
 
@@ -2401,6 +2580,8 @@ npx tsx src/newProblem.ts
 | 🗂️ Group Anagrams | Medium | Hash Map + Sort | ✅ Solved |
 | 🔐 Encode & Decode | Medium | String Manipulation | ✅ Solved |
 | ✖️ Product of Array Except Self | Medium | Prefix/Suffix Products | ✅ Solved |
+| 🎯 Valid Sudoku | Medium | Hash Set | ✅ Solved |
+| 🔗 Longest Consecutive | Medium | Hash Set | ✅ Solved |
 
 ---
 

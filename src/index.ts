@@ -2,6 +2,7 @@ import { encodeDecode } from "./encodeDecode.js";
 import { encodeDecode2 } from "./encodeDecode2.js";
 import { groupAnagrams } from "./groupAnagrams.js";
 import { isValidSudoku } from "./isValidSudoku.js";
+import { longestConsecutive } from "./longestConsecutive.js";
 import { productExceptSelf } from "./productExceptSelf.js";
 import { topKFrequent } from "./topKFrequent.js";
 import { topKFrequent2 } from "./topKFrequent2.js";
@@ -16,18 +17,7 @@ const Solution = {
   encodeDecode2,
   productExceptSelf,
   isValidSudoku,
+  longestConsecutive,
 };
 
-console.log(
-  Solution.isValidSudoku([
-    ["1", "2", ".", ".", "3", ".", ".", ".", "."],
-    ["4", ".", ".", "5", ".", ".", ".", ".", "."],
-    [".", "9", "1", ".", ".", ".", ".", ".", "3"],
-    ["5", ".", ".", ".", "6", ".", ".", ".", "4"],
-    [".", ".", ".", "8", ".", "3", ".", ".", "5"],
-    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-    [".", ".", ".", ".", ".", ".", "2", ".", "."],
-    [".", ".", ".", "4", "1", "9", ".", ".", "8"],
-    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
-  ]),
-);
+console.log(Solution.longestConsecutive([2, 20, 4, 10, 3, 4, 5]));
