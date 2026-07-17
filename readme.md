@@ -25,9 +25,10 @@ A TypeScript-based application for practicing Data Structures and Algorithms pro
 | 13 | [🎯 Solution 8 — Valid Sudoku](#-solution-8--valid-sudoku) | ✅ |
 | 14 | [🔗 Solution 9 — Longest Consecutive Sequence](#-solution-9--longest-consecutive-sequence) | ✅ |
 | 15 | [👉 Solution 10 — Valid Palindrome](#-solution-10--valid-palindrome) | ✅ |
-| 16 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
-| 17 | [💡 Tips](#-tips) | ✅ |
-| 18 | [📝 Add New Solution](#-add-new-solution) | ✅ |
+| 16 | [🔢 Solution 11 — Two Sum II](#-solution-11--two-sum-ii) | ✅ |
+| 17 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
+| 18 | [💡 Tips](#-tips) | ✅ |
+| 19 | [📝 Add New Solution](#-add-new-solution) | ✅ |
 
 ---
 
@@ -76,7 +77,8 @@ This app is part of a **100 Days Challenge** for mastering DSA. Each file in `sr
 │   ├── 📄 productExceptSelf.ts     # ✖️ Product of Array Except Self
 │   ├── 📄 isValidSudoku.ts         # 🎯 Valid Sudoku
 │   ├── 📄 longestConsecutive.ts    # 🔗 Longest Consecutive Sequence
-│   └── 📄 isPalindrome.ts          # 👉 Valid Palindrome
+│   ├── 📄 isPalindrome.ts          # 👉 Valid Palindrome
+│   └── 📄 twoSum.ts                # 🔢 Two Sum II
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 └── 📄 APP.md                       # 📖 This file
@@ -2614,6 +2616,82 @@ npx tsx src/isPalindrome.ts
 
 ---
 
+---
+
+# 🔢 Solution 11 — Two Sum II (Input Array Is Sorted)
+
+> **📁 File:** `src/twoSum.ts`
+
+## 📋 Problem
+
+Given a sorted array of integers and a target, find two numbers that add up to the target and return their 1-indexed positions.
+
+**🎯 Example:**
+`[2, 7, 11, 15] target = 9 → [1, 2]`
+
+## 💻 The Code
+
+```typescript
+// Approach 1: Linear Scan with indexOf
+export function twoSum2(numbers: number[], target: number): number[] {
+  for (let i = 0; i < numbers.length; i++) {
+    const x = numbers[i]!;
+    const z = target;
+    const y = z - x;
+
+    const indexOfY = numbers.indexOf(y, i + 1);
+
+    if (indexOfY !== -1) {
+      return [i + 1, indexOfY + 1];
+    }
+  }
+  return [];
+}
+
+// Approach 2: Two Pointers
+export function twoSum2_1(numbers: number[], target: number): number[] {
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    const sum = numbers[left]! + numbers[right]!;
+    if (sum === target) {
+      return [left + 1, right + 1];
+    }
+    if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return [];
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+### 🔸 Approach 1 — Linear Scan
+
+For each element `x`, compute the complement `y = target - x` and search for `y` in the remaining array using `indexOf`. If found, return both indices (1-indexed).
+
+### 🔹 Approach 2 — Two Pointers
+
+Use two pointers at both ends. If the sum is too small, move left pointer right. If too big, move right pointer left. When sum equals target, return both indices (1-indexed).
+
+### ⏱️ Complexity
+
+| Approach | ⏱️ Time | 💾 Space | Notes |
+|----------|---------|---------|-------|
+| 🔸 Linear Scan | `O(n²)` | `O(1)` | indexOf scans remaining array each iteration |
+| 🔹 Two Pointers | `O(n)` | `O(1)` | Single pass with two pointers |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/twoSum.ts
+```
+
+---
+
 ## ➕ Adding New Problems
 
 ### Step 1: 📄 Create the file
@@ -2668,6 +2746,7 @@ npx tsx src/newProblem.ts
 | 🎯 Valid Sudoku | Medium | Hash Set | ✅ Solved |
 | 🔗 Longest Consecutive | Medium | Hash Set | ✅ Solved |
 | 👉 Valid Palindrome | Easy | Two Pointers | ✅ Solved |
+| 🔢 Two Sum II | Medium | Two Pointers | ✅ Solved |
 
 ---
 

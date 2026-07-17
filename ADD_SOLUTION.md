@@ -5,7 +5,7 @@
 ```
 Read ADD_SOLUTION.md, then add this solution to readme.md.
 
-File: src/[fileName].ts
+File: src/twoSum.ts
 
 Problem: [name]
 Difficulty: [Easy/Medium/Hard]
@@ -20,7 +20,7 @@ Example: [input] → [output]
 ### Step 1: Read the solution file only
 
 ```
-Read src/src/productExceptSelf.ts
+Read src/twoSum.ts
 ```
 
 This is the ONLY file to read fully.
@@ -123,13 +123,13 @@ Find last row (e.g. `| 🔐 Encode & Decode...`). Add after it:
 
 ## Token Budget
 
-| Action | Tokens |
-|--------|--------|
-| Read ADD_SOLUTION.md | ~100 |
-| Read solution file | ~50-200 |
-| 4x Grep calls | ~40 |
-| 4x Edit calls | ~200 |
-| **Total** | **~400** |
+| Action               | Tokens   |
+| -------------------- | -------- |
+| Read ADD_SOLUTION.md | ~100     |
+| Read solution file   | ~50-200  |
+| 4x Grep calls        | ~40      |
+| 4x Edit calls        | ~200     |
+| **Total**            | **~400** |
 
 vs reading full readme.md = **~5000+ tokens**
 
@@ -137,20 +137,20 @@ vs reading full readme.md = **~5000+ tokens**
 
 ## Icon Reference
 
-| Category | Icon |
-|----------|------|
-| Hash Map / Hash Set | 🗂️ 🔐 🔒 |
-| Two Pointers / Sliding Window | 👈 👉 🔀 |
-| Sorting | 🔄 📊 |
-| Binary Search | 🎯 |
-| Stack / Queue | 📚 📥 |
-| Tree / Graph | 🌳 🔗 |
-| Dynamic Programming | 📈 🧩 |
-| String Manipulation | ✏️ 🔤 |
-| Math / Bit Manipulation | ➖ ➕ ✖️ 🔢 |
-| Linked List | 🔗 |
-| Prefix/Suffix | ✖️ |
-| Default | 🧩 |
+| Category                      | Icon        |
+| ----------------------------- | ----------- |
+| Hash Map / Hash Set           | 🗂️ 🔐 🔒    |
+| Two Pointers / Sliding Window | 👈 👉 🔀    |
+| Sorting                       | 🔄 📊       |
+| Binary Search                 | 🎯          |
+| Stack / Queue                 | 📚 📥       |
+| Tree / Graph                  | 🌳 🔗       |
+| Dynamic Programming           | 📈 🧩       |
+| String Manipulation           | ✏️ 🔤       |
+| Math / Bit Manipulation       | ➖ ➕ ✖️ 🔢 |
+| Linked List                   | 🔗          |
+| Prefix/Suffix                 | ✖️          |
+| Default                       | 🧩          |
 
 ## File Naming
 

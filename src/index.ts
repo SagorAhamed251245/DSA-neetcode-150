@@ -1,12 +1,14 @@
 import { encodeDecode } from "./encodeDecode.js";
 import { encodeDecode2 } from "./encodeDecode2.js";
 import { groupAnagrams } from "./groupAnagrams.js";
+import { isPalindrome } from "./isPalindrome.js";
 import { isValidSudoku } from "./isValidSudoku.js";
 import { longestConsecutive } from "./longestConsecutive.js";
 import { productExceptSelf } from "./productExceptSelf.js";
 import { topKFrequent } from "./topKFrequent.js";
 import { topKFrequent2 } from "./topKFrequent2.js";
 import { twoSum } from "./two-sum.js";
+import { twoSum2, twoSum2_1 } from "./twoSum.js";
 
 const Solution = {
   twoSum,
@@ -18,6 +20,9 @@ const Solution = {
   productExceptSelf,
   isValidSudoku,
   longestConsecutive,
+  isPalindrome,
+  twoSum2,
+  twoSum2_1,
 };
 
-console.log(Solution.longestConsecutive([2, 20, 4, 10, 3, 4, 5]));
+console.log(Solution.twoSum2_1([2, 7, 11, 15], 4));
