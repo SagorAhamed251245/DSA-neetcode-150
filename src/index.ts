@@ -5,6 +5,7 @@ import { isPalindrome } from "./isPalindrome.js";
 import { isValidSudoku } from "./isValidSudoku.js";
 import { longestConsecutive } from "./longestConsecutive.js";
 import { productExceptSelf } from "./productExceptSelf.js";
+import { threeSum } from "./threeSum.js";
 import { topKFrequent } from "./topKFrequent.js";
 import { topKFrequent2 } from "./topKFrequent2.js";
 import { twoSum } from "./two-sum.js";
@@ -23,6 +24,7 @@ const Solution = {
   isPalindrome,
   twoSum2,
   twoSum2_1,
+  threeSum
 };
 
-console.log(Solution.twoSum2_1([2, 7, 11, 15], 4));
+console.log(Solution.threeSum([-1,0,1,2,-1,-4]));
