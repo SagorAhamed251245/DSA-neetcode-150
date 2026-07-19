@@ -4,6 +4,7 @@ import { groupAnagrams } from "./groupAnagrams.js";
 import { isPalindrome } from "./isPalindrome.js";
 import { isValidSudoku } from "./isValidSudoku.js";
 import { longestConsecutive } from "./longestConsecutive.js";
+import { maxArea } from "./maxArea.js";
 import { productExceptSelf } from "./productExceptSelf.js";
 import { threeSum } from "./threeSum.js";
 import { topKFrequent } from "./topKFrequent.js";
@@ -24,7 +25,8 @@ const Solution = {
   isPalindrome,
   twoSum2,
   twoSum2_1,
-  threeSum
+  threeSum,
+  maxArea,
 };
 
-console.log(Solution.threeSum([-1,0,1,2,-1,-4]));
+console.log(Solution.maxArea([1, 7, 2, 5, 4, 7, 3, 6]));
