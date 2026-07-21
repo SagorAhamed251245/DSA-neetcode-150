@@ -5,7 +5,7 @@
 ```
 Read ADD_SOLUTION.md, then add this solution to readme.md.
 
-File: src/maxArea.ts
+File: src/getConcatenation.ts
 
 Problem: [name]
 Difficulty: [Easy/Medium/Hard]
@@ -20,7 +20,7 @@ Example: [input] → [output]
 ### Step 1: Read the solution file only
 
 ```
-Read src/maxArea.ts
+Read src/getConcatenation.ts
 ```
 
 This is the ONLY file to read fully.

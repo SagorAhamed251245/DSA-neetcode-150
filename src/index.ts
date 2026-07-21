@@ -1,5 +1,6 @@
 import { encodeDecode } from "./encodeDecode.js";
 import { encodeDecode2 } from "./encodeDecode2.js";
+import { getConcatenation } from "./getConcatenation.js";
 import { groupAnagrams } from "./groupAnagrams.js";
 import { isPalindrome } from "./isPalindrome.js";
 import { isValidSudoku } from "./isValidSudoku.js";
@@ -27,6 +28,7 @@ const Solution = {
   twoSum2_1,
   threeSum,
   maxArea,
+  getConcatenation,
 };
 
-console.log(Solution.maxArea([1, 7, 2, 5, 4, 7, 3, 6]));
+console.log(Solution.getConcatenation([1, 4, 1, 2]));

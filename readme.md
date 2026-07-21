@@ -28,9 +28,10 @@ A TypeScript-based application for practicing Data Structures and Algorithms pro
 | 16 | [🔢 Solution 11 — Two Sum II](#-solution-11--two-sum-ii) | ✅ |
 | 17 | [👈 Solution 12 — Three Sum](#-solution-12--three-sum) | ✅ |
 | 18 | [👈 Solution 13 — Container With Most Water](#-solution-13--container-with-most-water) | ✅ |
-| 19 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
-| 20 | [💡 Tips](#-tips) | ✅ |
-| 21 | [📝 Add New Solution](#-add-new-solution) | ✅ |
+| 19 | [🔢 Solution 14 — Concatenate Array](#-solution-14--concatenate-array) | ✅ |
+| 20 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
+| 21 | [💡 Tips](#-tips) | ✅ |
+| 22 | [📝 Add New Solution](#-add-new-solution) | ✅ |
 
 ---
 
@@ -82,7 +83,8 @@ This app is part of a **100 Days Challenge** for mastering DSA. Each file in `sr
 │   ├── 📄 isPalindrome.ts          # 👉 Valid Palindrome
 │   ├── 📄 twoSum.ts                # 🔢 Two Sum II
 │   ├── 📄 threeSum.ts              # 👈 Three Sum
-│   └── 📄 maxArea.ts               # 👈 Container With Most Water
+│   ├── 📄 maxArea.ts               # 👈 Container With Most Water
+│   └── 📄 getConcatenation.ts      # 🔢 Concatenate Array
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 └── 📄 APP.md                       # 📖 This file
@@ -2849,6 +2851,64 @@ npx tsx src/maxArea.ts
 
 ---
 
+---
+
+---
+
+# 🔢 Solution 14 — Concatenate Array
+
+> **📁 File:** `src/getConcatenation.ts`
+
+## 📋 Problem
+
+Given an integer array `nums` of length `n`, return the concatenation of `nums` with itself (i.e., `nums` repeated twice).
+
+**🎯 Example:**
+```
+Input:  nums = [1, 2, 3]
+Output: [1, 2, 3, 1, 2, 3]
+```
+
+## 💻 The Code
+
+```typescript
+export function getConcatenation(nums: number[]): number[] {
+  return [...nums, ...nums]
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+Let's say input is:
+
+```ts
+nums = [1, 2, 3]
+```
+
+The spread operator `...` unpacks the array into individual elements.
+
+```ts
+[...nums, ...nums]
+→ [1, 2, 3, 1, 2, 3]
+```
+
+That's it — one line, no loops needed.
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(n)` | Creates a new array of 2n elements |
+| 💾 Space | `O(n)` | New array stores 2n elements |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/getConcatenation.ts
+```
+
+---
+
 ## ➕ Adding New Problems
 
 ### Step 1: 📄 Create the file
@@ -2906,6 +2966,7 @@ npx tsx src/newProblem.ts
 | 🔢 Two Sum II | Medium | Two Pointers | ✅ Solved |
 | 👈 Three Sum | Medium | Two Pointers + Sorting | ✅ Solved |
 | 👈 Container With Most Water | Medium | Two Pointers | ✅ Solved |
+| 🔢 Concatenate Array | Easy | Array Manipulation | ✅ Solved |
 
 ---
 
