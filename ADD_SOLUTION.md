@@ -5,7 +5,7 @@
 ```
 Read ADD_SOLUTION.md, then add this solution to readme.md.
 
-File: src/getConcatenation.ts
+File: src/longestCommonPrefix.ts
 
 Problem: [name]
 Difficulty: [Easy/Medium/Hard]
@@ -20,7 +20,7 @@ Example: [input] → [output]
 ### Step 1: Read the solution file only
 
 ```
-Read src/getConcatenation.ts
+Read src/longestCommonPrefix.ts
 ```
 
 This is the ONLY file to read fully.

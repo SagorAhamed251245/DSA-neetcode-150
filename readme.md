@@ -29,9 +29,10 @@ A TypeScript-based application for practicing Data Structures and Algorithms pro
 | 17 | [👈 Solution 12 — Three Sum](#-solution-12--three-sum) | ✅ |
 | 18 | [👈 Solution 13 — Container With Most Water](#-solution-13--container-with-most-water) | ✅ |
 | 19 | [🔢 Solution 14 — Concatenate Array](#-solution-14--concatenate-array) | ✅ |
-| 20 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
-| 21 | [💡 Tips](#-tips) | ✅ |
-| 22 | [📝 Add New Solution](#-add-new-solution) | ✅ |
+| 20 | [✏️ Solution 15 — Longest Common Prefix](#-solution-15--longest-common-prefix) | ✅ |
+| 21 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
+| 22 | [💡 Tips](#-tips) | ✅ |
+| 23 | [📝 Add New Solution](#-add-new-solution) | ✅ |
 
 ---
 
@@ -84,7 +85,8 @@ This app is part of a **100 Days Challenge** for mastering DSA. Each file in `sr
 │   ├── 📄 twoSum.ts                # 🔢 Two Sum II
 │   ├── 📄 threeSum.ts              # 👈 Three Sum
 │   ├── 📄 maxArea.ts               # 👈 Container With Most Water
-│   └── 📄 getConcatenation.ts      # 🔢 Concatenate Array
+│   ├── 📄 getConcatenation.ts      # 🔢 Concatenate Array
+│   └── 📄 longestCommonPrefix.ts   # ✏️ Longest Common Prefix
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 └── 📄 APP.md                       # 📖 This file
@@ -2909,6 +2911,83 @@ npx tsx src/getConcatenation.ts
 
 ---
 
+---
+
+# ✏️ Solution 15 — Longest Common Prefix
+
+> **📁 File:** `src/longestCommonPrefix.ts`
+
+## 📋 Problem
+
+Find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string.
+
+**🎯 Example:**
+```
+Input: ["flower","flow","flight"]
+Output: "fl"
+```
+
+## 💻 The Code
+
+```typescript
+export function longestCommonPrefix(strs: string[]): string {
+  const sort = strs.sort();
+  const f = sort[0]!;
+  const l = sort[sort.length - 1]!;
+  let res = "";
+  let match = true;
+
+  if (f?.length > l?.length) {
+    for (let i = 0; i < l.length && match; i++) {
+      match = l[i] === f[i];
+
+      if (!match) {
+        match = false;
+      } else {
+        res = res + l[i];
+      }
+    }
+  } else {
+    for (let i = 0; i < f.length && match; i++) {
+      match = f[i] === l[i];
+
+      if (!match) {
+        match = false;
+      } else {
+        res = res + f[i];
+      }
+    }
+  }
+  console.log({ sort, f, l, res });
+
+  return res;
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+1. **Sort the array** — After sorting alphabetically, the first and last strings are the most different, so any common prefix they share is common to all strings.
+2. **Compare first and last** — Iterate character-by-character through the shorter of the two, building the result string until a mismatch is found.
+3. **Return the prefix** — The accumulated result is the longest common prefix.
+
+**Walkthrough with `["flower","flow","flight"]`:**
+- Sorted: `["flight", "flow", "flower"]`
+- Compare `"flight"` vs `"flower"`: `f` matches, `l` matches, `i` vs `o` → mismatch
+- Result: `"fl"`
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(n·k log n)` | Sorting is `O(n·k log n)`, comparison is `O(k)` where `k` is the shortest string length |
+| 💾 Space | `O(1)` | Only a few variables (excluding sort space) |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/longestCommonPrefix.ts
+```
+
 ## ➕ Adding New Problems
 
 ### Step 1: 📄 Create the file
@@ -2967,6 +3046,7 @@ npx tsx src/newProblem.ts
 | 👈 Three Sum | Medium | Two Pointers + Sorting | ✅ Solved |
 | 👈 Container With Most Water | Medium | Two Pointers | ✅ Solved |
 | 🔢 Concatenate Array | Easy | Array Manipulation | ✅ Solved |
+| ✏️ Longest Common Prefix | Easy | String Manipulation | ✅ Solved |
 
 ---
 

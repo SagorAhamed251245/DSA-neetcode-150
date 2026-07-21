@@ -4,6 +4,7 @@ import { getConcatenation } from "./getConcatenation.js";
 import { groupAnagrams } from "./groupAnagrams.js";
 import { isPalindrome } from "./isPalindrome.js";
 import { isValidSudoku } from "./isValidSudoku.js";
+import { longestCommonPrefix } from "./longestCommonPrefix.js";
 import { longestConsecutive } from "./longestConsecutive.js";
 import { maxArea } from "./maxArea.js";
 import { productExceptSelf } from "./productExceptSelf.js";
@@ -29,6 +30,7 @@ const Solution = {
   threeSum,
   maxArea,
   getConcatenation,
+  longestCommonPrefix,
 };
 
-console.log(Solution.getConcatenation([1, 4, 1, 2]));
+console.log(Solution.longestCommonPrefix(["mismatch", "misfit", "miss"]));
