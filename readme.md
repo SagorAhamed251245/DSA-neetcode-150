@@ -29,10 +29,15 @@ A TypeScript-based application for practicing Data Structures and Algorithms pro
 | 17 | [👈 Solution 12 — Three Sum](#-solution-12--three-sum) | ✅ |
 | 18 | [👈 Solution 13 — Container With Most Water](#-solution-13--container-with-most-water) | ✅ |
 | 19 | [🔢 Solution 14 — Concatenate Array](#-solution-14--concatenate-array) | ✅ |
-| 20 | [✏️ Solution 15 — Longest Common Prefix](#-solution-15--longest-common-prefix) | ✅ |
-| 21 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
-| 22 | [💡 Tips](#-tips) | ✅ |
-| 23 | [📝 Add New Solution](#-add-new-solution) | ✅ |
+| 20 | [Solution 15 — Longest Common Prefix](#solution-15--longest-common-prefix) | ✅ |
+| 21 | [🔐 Solution 16 — Design HashMap](#-solution-16--design-hashmap) | ✅ |
+| 22 | [🔒 Solution 17 — Design HashSet](#-solution-17--design-hashset) | ✅ |
+| 23 | [📊 Solution 18 — Majority Element](#-solution-18--majority-element) | ✅ |
+| 24 | [👉 Solution 19 — Remove Element](#-solution-19--remove-element) | ✅ |
+| 25 | [🔄 Solution 20 — Sort Array](#-solution-20--sort-array) | ✅ |
+| 26 | [➕ Adding New Problems](#-adding-new-problems) | ✅ |
+| 27 | [💡 Tips](#-tips) | ✅ |
+| 28 | [📝 Add New Solution](#-add-new-solution) | ✅ |
 
 ---
 
@@ -86,7 +91,12 @@ This app is part of a **100 Days Challenge** for mastering DSA. Each file in `sr
 │   ├── 📄 threeSum.ts              # 👈 Three Sum
 │   ├── 📄 maxArea.ts               # 👈 Container With Most Water
 │   ├── 📄 getConcatenation.ts      # 🔢 Concatenate Array
-│   └── 📄 longestCommonPrefix.ts   # ✏️ Longest Common Prefix
+│   ├── 📄 longestCommonPrefix.ts   # ✏️ Longest Common Prefix
+│   ├── 📄 designHashMap.ts         # 🔐 Design HashMap
+│   ├── 📄 designHashSet.ts         # 🔒 Design HashSet
+│   ├── 📄 majorityElement.ts       # 📊 Majority Element
+│   ├── 📄 removeElement.ts         # 👉 Remove Element
+│   └── 📄 sortArray.ts             # 🔄 Sort Array
 ├── 📄 package.json
 ├── 📄 tsconfig.json
 └── 📄 APP.md                       # 📖 This file
@@ -2913,7 +2923,7 @@ npx tsx src/getConcatenation.ts
 
 ---
 
-# ✏️ Solution 15 — Longest Common Prefix
+# Solution 15 — Longest Common Prefix
 
 > **📁 File:** `src/longestCommonPrefix.ts`
 
@@ -2988,6 +2998,472 @@ export function longestCommonPrefix(strs: string[]): string {
 npx tsx src/longestCommonPrefix.ts
 ```
 
+---
+
+---
+
+# 🔐 Solution 16 — Design HashMap
+
+> **📁 File:** `src/designHashMap.ts`
+
+## 📋 Problem
+
+Design a HashMap without using any built-in hash table libraries. Implement `MyHashMap` class with `put(key, value)`, `get(key)`, and `remove(key)`.
+
+**🎯 Example:**
+```
+Input: put(1,1), put(2,2), get(1) → 1, remove(1), get(1) → -1
+```
+
+## 💻 The Code
+
+### 🔸 Approach 1 — Using Object
+
+```typescript
+export class MyHashMap {
+  private obj: { [key: number]: number };
+  constructor() {
+    this.obj = {};
+  }
+
+  put(key: number, value: number): void {
+    this.obj[key] = value;
+    console.log(this.obj[key]);
+  }
+
+  get(key: number): number {
+    if (this.obj[key] !== undefined) {
+      return this.obj[key];
+    } else {
+      return -1;
+    }
+  }
+
+  remove(key: number): void {
+    delete this.obj[key];
+  }
+}
+```
+
+### 🔹 Approach 2 — Using Map
+
+```typescript
+export class MyHashMapSimpleSolution {
+  private map: Map<number, number>;
+  constructor() {
+    this.map = new Map<number, number>();
+  }
+
+  put(key: number, value: number): void {
+    this.map.set(key, value);
+  }
+
+  get(key: number): number {
+    const value = this.map.get(key);
+    if (value !== undefined) {
+      return value;
+    } else {
+      return -1;
+    }
+  }
+
+  remove(key: number): void {
+    this.map.delete(key);
+  }
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+**Approach 1 (Object):**
+1. Use a plain JS object as the underlying storage.
+2. `put` assigns a key-value pair directly.
+3. `get` checks if the key exists, returns -1 if not.
+4. `remove` uses `delete` to erase the key.
+
+**Approach 2 (Map):**
+1. Use JavaScript's built-in `Map` for cleaner semantics.
+2. `put` calls `map.set()`.
+3. `get` calls `map.get()` and returns -1 if undefined.
+4. `remove` calls `map.delete()`.
+
+### ⏱️ Complexity
+
+| Approach | ⏱️ Time | 💾 Space | Notes |
+|----------|---------|---------|-------|
+| 🔸 Object | O(1) average | O(n) | Simple but no guaranteed performance |
+| 🔹 Map | O(1) average | O(n) | Cleaner API, same complexity |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/designHashMap.ts
+```
+
+---
+
+---
+
+# 🔒 Solution 17 — Design HashSet
+
+> **📁 File:** `src/designHashSet.ts`
+
+## 📋 Problem
+
+Design a HashSet without using any built-in hash table libraries. Implement `MyHashSet` class with `add(key)`, `remove(key)`, and `contains(key)`.
+
+**🎯 Example:**
+```
+Input: add(1), add(2), contains(1) → true, contains(3) → false, remove(1), contains(1) → false
+```
+
+## 💻 The Code
+
+```typescript
+export function MyHashSet() {
+  return class {
+    private obj: Set<number>;
+    constructor() {
+      this.obj = new Set<number>();
+    }
+
+    add(key: number): void {
+      this.obj.add(key);
+    }
+
+    remove(key: number): void {
+      this.obj.delete(key);
+    }
+
+    contains(key: number): boolean {
+      if (this.obj.has(key)) return true;
+      return false;
+    }
+  };
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+1. Wrap a class in a factory function returning it.
+2. Use `Set<number>` as the underlying storage.
+3. `add` delegates to `Set.add()`.
+4. `remove` delegates to `Set.delete()`.
+5. `contains` checks with `Set.has()` and returns a boolean.
+
+**Walkthrough with `add(1), add(2), contains(1)`:**
+- `add(1)` → Set becomes `{1}`
+- `add(2)` → Set becomes `{1, 2}`
+- `contains(1)` → Set has 1 → returns `true`
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(1)` average | Set operations are O(1) amortized |
+| 💾 Space | `O(n)` | Stores up to n unique keys |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/designHashSet.ts
+```
+
+---
+
+---
+
+# 📊 Solution 18 — Majority Element
+
+> **📁 File:** `src/majorityElement.ts`
+
+## 📋 Problem
+
+Find the element that appears more than ⌊n/2⌋ times in an array. The majority element always exists in the input.
+
+**🎯 Example:**
+```
+Input: [3,2,3] → Output: 3
+Input: [2,2,1,1,1,2,2] → Output: 2
+```
+
+## 💻 The Code
+
+### 🔸 Approach 1 — Hash Map (Count All)
+
+```typescript
+export function majorityElement(nums: number[]): number {
+  if (nums.length < 1) {
+    return 0;
+  }
+  const map = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (!map.has(num)) {
+      map.set(num, 1);
+    } else {
+      map.set(num, map.get(num) + 1);
+    }
+  }
+  let longest = 0;
+  let longestKey = nums[0]!;
+  for (const [key, val] of map) {
+    console.log({ key, val });
+
+    if (longest < val) {
+      longest = val;
+      longestKey = key;
+    }
+  }
+
+  console.log({ longestKey, longest });
+
+  return longestKey;
+}
+```
+
+### 🔹 Approach 2 — Hash Map (Track Max During Insert)
+
+```typescript
+export function majorityElementApproachTwo(nums: number[]): number {
+  if (nums.length < 1) {
+    return 0;
+  }
+  const map = new Map();
+  let lk = nums[0]!;
+  let lo = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i]!;
+    if (!map.has(num)) {
+      map.set(num, 1);
+    } else {
+      const count = map.get(num) + 1;
+      map.set(num, count);
+      if (count > lo) {
+        lo = count;
+        lk = num;
+      }
+    }
+  }
+  return lk;
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+**Approach 1:**
+1. Count every element using a Map.
+2. Iterate through the Map to find the key with the highest count.
+
+**Approach 2:**
+1. Same counting, but track the majority candidate during insertion.
+2. Update the candidate whenever a count exceeds the current max.
+
+**Walkthrough with `[2,2,1,1,1,2,2]`:**
+- Count: `{2: 3, 1: 3}` → both equal
+- In approach 2, candidate updates as counts grow — final result: `2`
+
+### ⏱️ Complexity
+
+| Approach | ⏱️ Time | 💾 Space | Notes |
+|----------|---------|---------|-------|
+| 🔸 Count All | O(n) | O(n) | Two passes over Map |
+| 🔹 Track Max | O(n) | O(n) | Single pass, tracks max inline |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/majorityElement.ts
+```
+
+---
+
+---
+
+# 👉 Solution 19 — Remove Element
+
+> **📁 File:** `src/removeElement.ts`
+
+## 📋 Problem
+
+Given an array `nums` and a value `val`, remove all instances of `val` in-place and return the new length. The order of elements can be changed.
+
+**🎯 Example:**
+```
+Input: nums = [3,2,2,3], val = 3 → Output: 2, nums = [2,2,_,_]
+Input: nums = [0,1,2,2,3,0,4,2], val = 2 → Output: 5, nums = [0,1,4,0,3,_,_,_]
+```
+
+## 💻 The Code
+
+```typescript
+export function removeElement(nums: number[], val: number): number {
+  let k = 0;
+  for (const num of nums) {
+    if (num !== val) {
+      nums[k] = num;
+      k++;
+    }
+  }
+
+  return k;
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+1. Use a pointer `k` to track where the next non-val element should go.
+2. Iterate through the array — if the current element is NOT `val`, place it at `nums[k]` and increment `k`.
+3. Elements after `k` don't matter (they can be anything).
+4. Return `k` as the new length.
+
+**Walkthrough with `[0,1,2,2,3,0,4,2]`, val = 2:**
+- `0` ≠ 2 → nums[0]=0, k=1
+- `1` ≠ 2 → nums[1]=1, k=2
+- `2` = 2 → skip
+- `2` = 2 → skip
+- `3` ≠ 2 → nums[2]=3, k=3
+- `0` ≠ 2 → nums[3]=0, k=4
+- `4` ≠ 2 → nums[4]=4, k=5
+- `2` = 2 → skip
+- Return `5`
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(n)` | Single pass through the array |
+| 💾 Space | `O(1)` | In-place modification, no extra space |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/removeElement.ts
+```
+
+---
+
+---
+
+# 🔄 Solution 20 — Sort Array
+
+> **📁 File:** `src/sortArray.ts`
+
+## 📋 Problem
+
+Given an array of integers `nums`, sort the array in ascending order and return it. Must solve without using built-in sort functions.
+
+**🎯 Example:**
+```
+Input: [5,2,3,1] → Output: [1,2,3,5]
+Input: [5,1,1,2,0,0] → Output: [0,0,1,1,2,5]
+```
+
+## 💻 The Code
+
+```typescript
+export function sortArray(nums: number[]): number[] {
+  const map = new Map<number, number>();
+
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i]!;
+    map.set(num, (map.get(num) ?? 0) + 1);
+  }
+
+  const heap: number[] = Array.from(map.keys());
+
+  buildMinHeap(heap);
+
+  nums.length = 0;
+
+  while (heap.length > 0) {
+    const smallest = extractMin(heap);
+    const count = map.get(smallest);
+
+    if (count === undefined) {
+      continue;
+    }
+
+    for (let i = 0; i < count; i++) {
+      nums.push(smallest);
+    }
+  }
+
+  return nums;
+}
+
+function buildMinHeap(heap: number[]): void {
+  const n: number = heap.length;
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapifyDown(heap, n, i);
+  }
+}
+
+function extractMin(heap: number[]): number {
+  const min: number = heap[0]!;
+  const last: number | undefined = heap.pop();
+
+  if (last !== undefined && heap.length > 0) {
+    heap[0] = last;
+    heapifyDown(heap, heap.length, 0);
+  }
+
+  return min;
+}
+
+function heapifyDown(heap: number[], size: number, index: number): void {
+  let smallest: number = index;
+  const left: number = 2 * index + 1;
+  const right: number = 2 * index + 2;
+
+  if (left < size && heap[left]! < heap[smallest]!) {
+    smallest = left;
+  }
+  if (right < size && heap[right]! < heap[smallest]!) {
+    smallest = right;
+  }
+
+  if (smallest !== index) {
+    const temp: number = heap[index]!;
+    heap[index] = heap[smallest]!;
+    heap[smallest] = temp;
+    heapifyDown(heap, size, smallest);
+  }
+}
+```
+
+## 📖 Step-by-Step Explanation
+
+This uses a **Counting Sort with Min-Heap** approach:
+
+1. **Count frequencies** — Build a Map of `value → count`.
+2. **Extract unique values** — Get all unique numbers into an array.
+3. **Build Min-Heap** — Organize unique values so the smallest is always at the root.
+4. **Extract and reconstruct** — Repeatedly extract the minimum, push its value `count` times into the result.
+
+**Walkthrough with `[5,2,3,1]`:**
+- Map: `{5:1, 2:1, 3:1, 1:1}`
+- Unique: `[5, 2, 3, 1]` → build min-heap → `[1, 2, 3, 5]`
+- Extract 1 → push 1 → nums = `[1]`
+- Extract 2 → push 2 → nums = `[1, 2]`
+- Extract 3 → push 3 → nums = `[1, 2, 3]`
+- Extract 5 → push 5 → nums = `[1, 2, 3, 5]`
+
+### ⏱️ Complexity
+
+| Metric | Value | Why |
+|--------|-------|-----|
+| 🕐 Time | `O(n + k log k)` | Count is O(n), heap operations on k unique elements |
+| 💾 Space | `O(n)` | Map + heap + result array |
+
+### ▶️ How to Run
+
+```bash
+npx tsx src/sortArray.ts
+```
+
 ## ➕ Adding New Problems
 
 ### Step 1: 📄 Create the file
@@ -3047,6 +3523,11 @@ npx tsx src/newProblem.ts
 | 👈 Container With Most Water | Medium | Two Pointers | ✅ Solved |
 | 🔢 Concatenate Array | Easy | Array Manipulation | ✅ Solved |
 | ✏️ Longest Common Prefix | Easy | String Manipulation | ✅ Solved |
+| 🔐 Design HashMap | Easy | Hash Map | ✅ Solved |
+| 🔒 Design HashSet | Easy | Hash Set | ✅ Solved |
+| 📊 Majority Element | Easy | Hash Map | ✅ Solved |
+| 👉 Remove Element | Easy | Two Pointers | ✅ Solved |
+| 🔄 Sort Array | Medium | Heap + Counting | ✅ Solved |
 
 ---
 

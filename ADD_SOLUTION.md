@@ -5,7 +5,7 @@
 ```
 Read ADD_SOLUTION.md, then add this solution to readme.md.
 
-File: src/longestCommonPrefix.ts
+File: src/*.ts
 
 Problem: [name]
 Difficulty: [Easy/Medium/Hard]
@@ -20,7 +20,7 @@ Example: [input] → [output]
 ### Step 1: Read the solution file only
 
 ```
-Read src/longestCommonPrefix.ts
+Read src/*.ts
 ```
 
 This is the ONLY file to read fully.
