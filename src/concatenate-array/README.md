@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/concatenate-array/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an integer array `nums` of length `n`, return the concatenation of `nums` with itself (i.e., `nums` repeated twice).

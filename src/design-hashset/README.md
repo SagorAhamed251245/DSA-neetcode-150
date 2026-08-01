@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/design-hashset/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Design a HashSet without using any built-in hash table libraries. Implement `MyHashSet` class with `add(key)`, `remove(key)`, and `contains(key)`.

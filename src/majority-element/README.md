@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/majority-element/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Find the element that appears more than ⌊n/2⌋ times in an array. The majority element always exists in the input.

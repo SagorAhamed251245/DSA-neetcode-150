@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/design-hashmap/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Design a HashMap without using any built-in hash table libraries. Implement `MyHashMap` class with `put(key, value)`, `get(key)`, and `remove(key)`.

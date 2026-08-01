@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/top-k-frequent/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an integer array `nums` and an integer `k`, return the `k` most frequent elements.

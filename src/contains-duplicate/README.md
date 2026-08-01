@@ -1,5 +1,7 @@
 # Contains Duplicate — 3 Approaches (Day 1 Progress)
 
+![Diagram](./image.png)
+
 **Problem:** Given an array of numbers, return `true` if any value appears at least twice, otherwise return `false`.
 
 This README walks through the three solutions I wrote, in the order I wrote them, and why each one is an improvement over the last.

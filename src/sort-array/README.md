@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/sort-array/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an array of integers `nums`, sort the array in ascending order and return it. Must solve without using built-in sort functions.

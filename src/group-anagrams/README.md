@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/group-anagrams/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an array of strings, group the anagrams together.

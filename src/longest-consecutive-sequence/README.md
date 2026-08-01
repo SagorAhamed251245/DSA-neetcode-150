@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/longest-consecutive-sequence/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence. You must write an algorithm that runs in O(n) time.

@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/remove-element/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an array `nums` and a value `val`, remove all instances of `val` in-place and return the new length. The order of elements can be changed.

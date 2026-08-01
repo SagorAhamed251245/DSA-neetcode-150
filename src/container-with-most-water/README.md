@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/container-with-most-water/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given `n` non-negative integers `a1, a2, ..., an` where each represents a point at coordinate `(i, ai)`, find two lines that together with the x-axis form a container that holds the most water.

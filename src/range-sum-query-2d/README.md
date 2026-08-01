@@ -3,6 +3,8 @@
 > **📁 File:** `src/range-sum-query-2d/solution.ts`
 > 📊 **Diagram:** [diagram.excalidraw](./diagram.excalidraw)
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given a 2D matrix `matrix`, handle multiple queries of the following type: calculate the **sum of the elements** of the matrix inside the rectangle defined by its upper left corner `(row1, col1)` and lower right corner `(row2, col2)`.

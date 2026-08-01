@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/two-sum/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given an array of numbers and a target number, find the **indices** of two numbers that add up to the target.

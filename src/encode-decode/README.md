@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/encode-decode/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Design an algorithm to encode a list of strings to a single string, and decode it back to the original list.

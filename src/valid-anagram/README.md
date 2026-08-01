@@ -2,6 +2,8 @@
 
 > **📁 File:** `src/valid-anagram/solution.ts`
 
+![Diagram](./image.png)
+
 ## 📋 Problem
 
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
