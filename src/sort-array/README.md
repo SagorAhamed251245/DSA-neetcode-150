@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/sort-array/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -118,3 +117,5 @@ npx tsx src/sort-array/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/longest-common-prefix/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -76,3 +75,5 @@ npx tsx src/longest-common-prefix/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

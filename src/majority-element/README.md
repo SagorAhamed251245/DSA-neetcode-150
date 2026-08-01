@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/majority-element/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -106,3 +105,5 @@ npx tsx src/majority-element/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

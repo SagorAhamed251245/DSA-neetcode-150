@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/two-sum/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -255,3 +254,5 @@ npx tsx src/two-sum/solution2.ts
 ```
 
 ---
+
+![Diagram](./image.png)

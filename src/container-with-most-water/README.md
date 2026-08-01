@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/container-with-most-water/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -67,3 +66,5 @@ npx tsx src/container-with-most-water/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

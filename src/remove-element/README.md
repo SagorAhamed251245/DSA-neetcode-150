@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/remove-element/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -62,3 +61,5 @@ npx tsx src/remove-element/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/product-except-self/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -305,3 +304,5 @@ npx tsx src/product-except-self/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

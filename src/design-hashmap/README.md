@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/design-hashmap/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -99,3 +98,5 @@ npx tsx src/design-hashmap/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

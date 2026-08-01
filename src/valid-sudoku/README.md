@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/valid-sudoku/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -78,3 +77,5 @@ npx tsx src/valid-sudoku/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

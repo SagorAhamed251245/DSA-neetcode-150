@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/encode-decode/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -366,3 +365,5 @@ npx tsx src/encode-decode/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

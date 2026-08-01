@@ -1,6 +1,5 @@
 # Contains Duplicate — 3 Approaches (Day 1 Progress)
 
-![Diagram](./image.png)
 
 **Problem:** Given an array of numbers, return `true` if any value appears at least twice, otherwise return `false`.
 
@@ -118,3 +117,5 @@ Exactly the same idea as Solution 2, just written more concisely. `new Set(nums)
 ## Takeaway
 
 The jump from Solution 1 to Solution 2 is the important one: recognizing that a hash-based structure (`Set`) can check "have I seen this before?" in constant time, instead of re-scanning the array each time. Solution 3 doesn't change the algorithm at all — it's just a more idiomatic way to express the same logic once you're comfortable with `Set`.
+
+![Diagram](./image.png)

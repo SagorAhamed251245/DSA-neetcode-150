@@ -3,7 +3,6 @@
 > **📁 File:** `src/range-sum-query-2d/solution.ts`
 > 📊 **Diagram:** [diagram.excalidraw](./diagram.excalidraw)
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -177,3 +176,5 @@ npx tsx src/range-sum-query-2d/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

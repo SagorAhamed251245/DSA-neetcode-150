@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/top-k-frequent/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -428,3 +427,5 @@ npx tsx src/top-k-frequent/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

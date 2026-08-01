@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/longest-consecutive-sequence/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -95,3 +94,5 @@ npx tsx src/longest-consecutive-sequence/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

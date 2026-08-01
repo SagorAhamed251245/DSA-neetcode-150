@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/concatenate-array/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -53,3 +52,5 @@ npx tsx src/concatenate-array/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/valid-palindrome/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -80,3 +79,5 @@ npx tsx src/valid-palindrome/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)

@@ -2,7 +2,6 @@
 
 > **📁 File:** `src/valid-anagram/solution.ts`
 
-![Diagram](./image.png)
 
 ## 📋 Problem
 
@@ -130,3 +129,5 @@ npx tsx src/valid-anagram/solution.ts
 ```
 
 ---
+
+![Diagram](./image.png)
