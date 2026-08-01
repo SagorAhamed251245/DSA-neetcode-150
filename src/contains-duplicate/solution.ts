@@ -1,4 +1,4 @@
-const Solution = {
+export const Solution = {
   hasDuplicate(nums: number[]): boolean {
     let isTrue = false;
     for (let index = 0; index < nums.length && isTrue === false; index++) {
@@ -37,6 +37,3 @@ const Solution = {
     return new Set(nums).size !== nums.length;
   },
 };
-console.log(Solution.hasDuplicate([1, 7, 7, 55, 55]));
-console.log(Solution.hasDuplicate2([1, 7, 7, 55, 55]));
-console.log(Solution.hasDuplicate3([1, 7, 7, 55, 55]));

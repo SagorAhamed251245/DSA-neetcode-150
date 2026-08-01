@@ -26,7 +26,6 @@ export function longestCommonPrefix(strs: string[]): string {
       }
     }
   }
-  console.log({ sort, f, l, res });
 
   return res;
 }

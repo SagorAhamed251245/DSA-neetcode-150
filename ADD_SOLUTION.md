@@ -1,89 +1,55 @@
-# How to Add a New Solution — Token-Efficient Version
+# How to Add a New Solution
 
-**NEVER read the full readme.md.** Use this prompt:
+## New Workflow (Folder-Based)
 
-```
-Read ADD_SOLUTION.md, then add this solution to readme.md.
+### Step 1: Create Solution Folder
 
-File: src/*.ts
+Create a new folder in `src/` with kebab-case name:
 
-Problem: [name]
-Difficulty: [Easy/Medium/Hard]
-Pattern: [pattern]
-Example: [input] → [output]
+```bash
+mkdir src/[problem-name]
 ```
 
----
+Example: `mkdir src/two-sum`
 
-## What the AI Should Do (4 targeted edits only)
+### Step 2: Add Solution File
 
-### Step 1: Read the solution file only
+Create `solution.ts` in the new folder:
 
-```
-Read src/*.ts
-```
+```typescript
+// src/[problem-name]/solution.ts
 
-This is the ONLY file to read fully.
+export function solutionName(params: type): returnType {
+  // Your implementation
+}
 
-### Step 2: Find edit points with Grep (NOT Read)
-
-Use Grep to find exact lines — never read the full readme:
-
-```
-Grep pattern="Solution 6" path="readme.md"    → find last solution number
-Grep pattern="encodeDecode2.ts" path="readme.md"  → find last file in structure
-Grep pattern="Adding New Problems" path="readme.md" → find insert point
-Grep pattern="Encode.*String Manipulation" path="readme.md" → find last progress row
+// Demo
+console.log(solutionName(exampleInput));
 ```
 
-### Step 3: Make 4 small Edit calls
+### Step 3: Add README.md
 
-#### Edit 1 — Table of Contents (~line 23)
+Create `README.md` in the same folder with:
 
-Find the last solution row (e.g. `| 11 | [🔐 Solution 6...`) and add after it:
+```markdown
+# Problem Name
 
-```
-| 12 | [icon Solution 7 — Problem Name](#-solution-7--problem-name) | ✅ |
-```
-
-Then renumber subsequent rows (+1 each).
-
-#### Edit 2 — Project Structure (~line 70)
-
-Find the last `└──` or `├──` in the `src/` block. Change it to `├──` and add a new `└──` line:
-
-```
-│   ├── encodeDecode2.ts         # 🔐 Alternative solution
-│   └── [fileName].ts            # icon Problem Name
-```
-
-#### Edit 3 — Solution Section (before `## ➕ Adding New Problems`)
-
-Use Grep to find the exact line of `## ➕ Adding New Problems`, then Edit to insert the full solution block BEFORE it. Use this template:
-
-```
----
-
----
-
-# icon Solution N — Problem Name
-
-> **📁 File:** `src/[fileName].ts`
+> **📁 File:** `src/[problem-name]/solution.ts`
 
 ## 📋 Problem
 
-[One sentence]
+[Problem description]
 
 **🎯 Example:**
-[example]
+[Example input/output]
 
 ## 💻 The Code
 
-[full code from the file]
+[Full code from solution.ts]
 
 ## 📖 Step-by-Step Explanation
 
-[walkthrough with concrete example]
+[Detailed walkthrough]
 
 ### ⏱️ Complexity
 
@@ -94,65 +60,126 @@ Use Grep to find the exact line of `## ➕ Adding New Problems`, then Edit to in
 
 ### ▶️ How to Run
 
-npx tsx src/[fileName].ts
+```bash
+npx tsx src/[problem-name]/solution.ts
+```
 ```
 
-**Multiple approaches?** Use:
+### Step 4: Update src/index.ts
+
+Add import and export to `src/index.ts`:
+
+```typescript
+import { solutionName } from "./[problem-name]/solution.js";
+
+const Solution = {
+  // ... existing solutions
+  solutionName,
+};
+```
+
+### Step 5: Update Root readme.md
+
+Add a row to the Solutions table in `readme.md`:
+
+```markdown
+| # | [Problem Name](src/[problem-name]/README.md) | `[problem-name]/` | Easy/Medium/Hard |
+```
+
+---
+
+## Quick Prompt for AI
 
 ```
-## 🔸 Approach 1 — [Name]
-[code + explanation]
+Add a new DSA solution to this project.
 
-## 🔹 Approach 2 — [Name]
-[code + explanation]
+Folder: src/[problem-name]/
+Problem: [Problem Name]
+Difficulty: [Easy/Medium/Hard]
+Pattern: [Pattern Name]
+Example: [input] → [output]
 
-### ⏱️ Complexity
-| Approach | ⏱️ Time | 💾 Space | Notes |
-|----------|---------|---------|-------|
-```
-
-#### Edit 4 — Progress Tracker (bottom)
-
-Find last row (e.g. `| 🔐 Encode & Decode...`). Add after it:
-
-```
-| icon Problem Name | Easy/Medium/Hard | Pattern | ✅ Solved |
+Steps:
+1. Create src/[problem-name]/solution.ts
+2. Create src/[problem-name]/README.md
+3. Update src/index.ts imports
+4. Update readme.md solution table
 ```
 
 ---
 
 ## Token Budget
 
-| Action               | Tokens   |
-| -------------------- | -------- |
-| Read ADD_SOLUTION.md | ~100     |
-| Read solution file   | ~50-200  |
-| 4x Grep calls        | ~40      |
-| 4x Edit calls        | ~200     |
-| **Total**            | **~400** |
+| Action | Tokens |
+|--------|--------|
+| Create folder + 2 files | ~100 |
+| Update index.ts | ~50 |
+| Update readme.md | ~50 |
+| **Total** | **~200** |
 
-vs reading full readme.md = **~5000+ tokens**
+vs old workflow = **~5000+ tokens**
+
+---
+
+## File Naming Convention
+
+- Folder: `kebab-case` (e.g., `two-sum/`, `valid-anagram/`)
+- Solution: `solution.ts` (primary), `solution2.ts` (alternative)
+- README: `README.md` (always in the folder)
 
 ---
 
 ## Icon Reference
 
-| Category                      | Icon        |
-| ----------------------------- | ----------- |
-| Hash Map / Hash Set           | 🗂️ 🔐 🔒    |
-| Two Pointers / Sliding Window | 👈 👉 🔀    |
-| Sorting                       | 🔄 📊       |
-| Binary Search                 | 🎯          |
-| Stack / Queue                 | 📚 📥       |
-| Tree / Graph                  | 🌳 🔗       |
-| Dynamic Programming           | 📈 🧩       |
-| String Manipulation           | ✏️ 🔤       |
-| Math / Bit Manipulation       | ➖ ➕ ✖️ 🔢 |
-| Linked List                   | 🔗          |
-| Prefix/Suffix                 | ✖️          |
-| Default                       | 🧩          |
+| Category | Icon |
+|----------|------|
+| Hash Map / Hash Set | 🗂️ 🔐 🔒 |
+| Two Pointers / Sliding Window | 👈 👉 🔀 |
+| Sorting | 🔄 📊 |
+| Binary Search | 🎯 |
+| Stack / Queue | 📚 📥 |
+| Tree / Graph | 🌳 🔗 |
+| Dynamic Programming | 📈 🧩 |
+| String Manipulation | ✏️ 🔤 |
+| Math / Bit Manipulation | ➖ ➕ ✖️ 🔢 |
+| Linked List | 🔗 |
+| Prefix/Suffix | ✖️ |
+| Default | 🧩 |
 
-## File Naming
+---
 
-- `camelCase.ts` — e.g. `productExceptSelf.ts`
-- Multiple approaches: `name.ts` + `name2.ts`
+## Example: Adding "Two Sum II"
+
+```bash
+# 1. Create folder
+mkdir src/two-sum-ii
+
+# 2. Create solution.ts
+cat > src/two-sum-ii/solution.ts << 'EOF'
+export function twoSumII(numbers: number[], target: number): number[] {
+  let left = 0;
+  let right = numbers.length - 1;
+  
+  while (left < right) {
+    const sum = numbers[left] + numbers[right];
+    if (sum === target) {
+      return [left + 1, right + 1];
+    } else if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  
+  return [];
+}
+
+console.log(twoSumII([2, 7, 11, 15], 9));
+EOF
+
+# 3. Create README.md (similar format as above)
+
+# 4. Update src/index.ts with import
+
+# 5. Update readme.md with new row in Solutions table
+```

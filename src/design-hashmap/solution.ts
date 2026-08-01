@@ -6,8 +6,6 @@ export class MyHashMap {
 
   put(key: number, value: number): void {
     this.obj[key] = value;
-
-    console.log(this.obj[key]);
   }
 
   get(key: number): number {
@@ -46,3 +44,5 @@ export class MyHashMapSimpleSolution {
     this.map.delete(key);
   }
 }
+
+

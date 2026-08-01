@@ -27,6 +27,6 @@ export const encodeDecode = {
         .split(" ")
         .map((binary) => String.fromCharCode(parseInt(binary, 2) ^ KEY))
         .join("");
-    });
+      });
   },
 };

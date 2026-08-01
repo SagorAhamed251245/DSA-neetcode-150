@@ -15,15 +15,11 @@ export function majorityElement(nums: number[]): number {
   let longest = 0;
   let longestKey = nums[0]!;
   for (const [key, val] of map) {
-    console.log({ key, val });
-
     if (longest < val) {
       longest = val;
       longestKey = key;
     }
   }
-
-  console.log({ longestKey, longest });
 
   return longestKey;
 }
