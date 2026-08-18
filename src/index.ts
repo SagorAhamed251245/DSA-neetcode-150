@@ -29,6 +29,7 @@ import { firstUniqChar } from "./firstUniqChar/solution.js";
 import { bestTimeToBuyAndSellStockIi } from "./best-time-to-buy-and-sell-stock-II/solution.js";
 import { Solution as ValidAnagram } from "./valid-anagram/solution.js";
 import { Solution as ContainsDuplicate } from "./contains-duplicate/solution.js";
+import { maxProfit } from "./max-profit/solution.js";
 
 const Solution = {
   twoSum,
@@ -60,7 +61,8 @@ const Solution = {
   bestTimeToBuyAndSellStockIi,
   ValidAnagram,
   ContainsDuplicate,
+  maxProfit,
 };
 
-const result = Solution.firstMissingPositive([1, 2, 4, 5, 6, 3, 1]);
+const result = Solution.maxProfit([1, 2, 11, 4, 7]);
 console.log(result);

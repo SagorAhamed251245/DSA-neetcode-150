@@ -144,6 +144,7 @@ npx tsx src/index.ts
 | 24 | [First Unique Character in a String](src/firstUniqChar/README.md) | `firstUniqChar/` | Easy |
 | 25 | [Majority Element II](src/majority-element-ii/README.md) | `majority-element-ii/` | Medium |
 | 26 | [Subarray Sum Equals K](src/subarray-sum-equals-k/README.md) | `subarray-sum-equals-k/` | Medium |
+| 27 | [Best Time to Buy and Sell Stock](src/max-profit/README.md) | `max-profit/` | Easy |
 
 ---
 
