@@ -1,6 +1,7 @@
 # Solution 27 — Best Time to Buy and Sell Stock
 
 > **File:** `src/max-profit/solution.ts`
+> **Diagram:** [max-profit-diagram.excalidraw](./max-profit-diagram.excalidraw)
 
 ## Problem
 
