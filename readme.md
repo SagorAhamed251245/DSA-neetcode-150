@@ -139,6 +139,11 @@ npx tsx src/index.ts
 | 19 | [Remove Element](src/remove-element/README.md) | `remove-element/` | Easy |
 | 20 | [Sort Array](src/sort-array/README.md) | `sort-array/` | Medium |
 | 21 | [Range Sum Query 2D](src/range-sum-query-2d/README.md) | `range-sum-query-2d/` | Medium |
+| 22 | [Best Time to Buy and Sell Stock II](src/best-time-to-buy-and-sell-stock-II/README.md) | `best-time-to-buy-and-sell-stock-II/` | Easy |
+| 23 | [First Missing Positive](src/firstMissingPositive/README.md) | `firstMissingPositive/` | Hard |
+| 24 | [First Unique Character in a String](src/firstUniqChar/README.md) | `firstUniqChar/` | Easy |
+| 25 | [Majority Element II](src/majority-element-ii/README.md) | `majority-element-ii/` | Medium |
+| 26 | [Subarray Sum Equals K](src/subarray-sum-equals-k/README.md) | `subarray-sum-equals-k/` | Medium |
 
 ---
 

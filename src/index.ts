@@ -1,4 +1,5 @@
 import { MyHashMap } from "./design-hashmap/solution.js";
+import { MyHashSet } from "./design-hashset/solution.js";
 import { encodeDecode } from "./encode-decode/solution.js";
 import { encodeDecode2 } from "./encode-decode/solution2.js";
 import { getConcatenation } from "./concatenate-array/solution.js";
@@ -20,7 +21,14 @@ import { threeSum } from "./three-sum/solution.js";
 import { topKFrequent } from "./top-k-frequent/solution.js";
 import { topKFrequent2 } from "./top-k-frequent/solution2.js";
 import { twoSum } from "./two-sum/solution.js";
-import { twoSum2, twoSum2_1 } from "./two-sum/solution2.js";
+import { twoSum2 } from "./two-sum/solution2.js";
+import { majorityElementII } from "./majority-element-ii/solution2.js";
+import { subarraySum } from "./subarray-sum-equals-k/solution.js";
+import { firstMissingPositive } from "./firstMissingPositive/solution.js";
+import { firstUniqChar } from "./firstUniqChar/solution.js";
+import { bestTimeToBuyAndSellStockIi } from "./best-time-to-buy-and-sell-stock-II/solution.js";
+import { Solution as ValidAnagram } from "./valid-anagram/solution.js";
+import { Solution as ContainsDuplicate } from "./contains-duplicate/solution.js";
 
 const Solution = {
   twoSum,
@@ -34,7 +42,6 @@ const Solution = {
   longestConsecutive,
   isPalindrome,
   twoSum2,
-  twoSum2_1,
   threeSum,
   maxArea,
   getConcatenation,
@@ -43,16 +50,17 @@ const Solution = {
   majorityElement,
   majorityElementApproachTwo,
   MyHashMap,
+  MyHashSet,
   sortArray,
   NumMatrix,
+  majorityElementII,
+  subarraySum,
+  firstMissingPositive,
+  firstUniqChar,
+  bestTimeToBuyAndSellStockIi,
+  ValidAnagram,
+  ContainsDuplicate,
 };
 
-const result = new Solution.NumMatrix([
-  [3, 0, 1, 4, 2],
-  [5, 6, 3, 2, 1],
-  [1, 2, 0, 1, 5],
-  [4, 1, 0, 1, 7],
-  [1, 0, 3, 0, 5],
-]);
-result.sumRegion(2, 1, 4, 3); // return 8 (i.e sum of the red rectangle)
+const result = Solution.firstMissingPositive([1, 2, 4, 5, 6, 3, 1]);
 console.log(result);
